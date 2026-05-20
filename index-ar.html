@@ -468,37 +468,16 @@
 
         /* Philosophy */
         .philosophy-container {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: var(--space-3xl);
-            align-items: center;
-        }
-
-        .philosophy-portrait {
-            order: 2;
-        }
-
-        .philosophy-content {
-            order: 1;
-        }
-
-        .portrait-frame {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 2px solid var(--color-blue-glow);
-        }
-
-        .portrait-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .philosophy-text {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             line-height: 1.8;
             color: var(--color-text);
+            text-align: center;
+            margin-bottom: var(--space-2xl);
         }
 
         .philosophy-text em {
@@ -510,16 +489,22 @@
         .philosophy-details {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-md);
+            gap: var(--space-xl);
             margin-top: var(--space-xl);
         }
 
         .detail-item {
-            padding: var(--space-lg);
+            padding: var(--space-xl);
             background: var(--color-navy-light);
             border: 1px solid var(--color-blue-glow);
             border-radius: 12px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            border-color: var(--color-blue);
+            transform: translateY(-2px);
         }
 
         .detail-number {
@@ -814,8 +799,6 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .philosophy-container { grid-template-columns: 1fr; }
-            .philosophy-portrait { max-width: 400px; margin: 0 auto; }
             .bento-grid {
                 grid-template-columns: repeat(6, 1fr);
                 grid-template-rows: auto;
@@ -964,30 +947,22 @@
         </div>
 
         <div class="philosophy-container">
-            <div class="philosophy-portrait">
-                <div class="portrait-frame">
-                    <img src="portrait.jpg" alt="أحمد عرفه">
+            <p class="philosophy-text">
+                مدير عمليات بخبرة <em>18 سنة</em> في دفع الأداء التشغيلي والنتائج التجارية. سجل حافل في قيادة العمليات متعددة المواقع، وإدارة ميزانيات تتجاوز 150 مليون ريال، وتنفيذ مشاريع معقدة في قطاعات الحكومة والعقارات والضيافة.
+            </p>
+
+            <div class="philosophy-details">
+                <div class="detail-item">
+                    <div class="detail-number">65→80%</div>
+                    <div class="detail-label">تحسين الربحية</div>
                 </div>
-            </div>
-
-            <div class="philosophy-content">
-                <p class="philosophy-text">
-                    مدير عمليات بخبرة <em>18 سنة</em> في دفع الأداء التشغيلي والنتائج التجارية. سجل حافل في قيادة العمليات متعددة المواقع، وإدارة ميزانيات تتجاوز 150 مليون ريال، وتنفيذ مشاريع معقدة في قطاعات الحكومة والعقارات والضيافة.
-                </p>
-
-                <div class="philosophy-details">
-                    <div class="detail-item">
-                        <div class="detail-number">65→80%</div>
-                        <div class="detail-label">تحسين الربحية</div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="detail-number">60%</div>
-                        <div class="detail-label">تخفيض التكاليف</div>
-                    </div>
-                    <div class="detail-item">
-                        <div class="detail-number">20+</div>
-                        <div class="detail-label">مشاريع رئيسية</div>
-                    </div>
+                <div class="detail-item">
+                    <div class="detail-number">60%</div>
+                    <div class="detail-label">تخفيض التكاليف</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-number">20+</div>
+                    <div class="detail-label">مشاريع رئيسية</div>
                 </div>
             </div>
         </div>
