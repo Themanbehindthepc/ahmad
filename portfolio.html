@@ -297,37 +297,39 @@
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-auto-rows: min-content;
-            gap: 8px;
-            margin-top: 24px;
+            gap: 10px;
+            margin-top: var(--space-xl);
             position: relative;
             z-index: 2;
-            align-items: start;
+            max-width: 960px;
         }
 
         .bento-card {
             background: linear-gradient(145deg, rgba(26, 45, 79, 0.8) 0%, rgba(16, 27, 59, 0.6) 100%);
             border: 1px solid rgba(81, 106, 199, 0.2);
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 10px;
+            padding: 14px 18px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .bento-card:hover {
             border-color: rgba(81, 106, 199, 0.5);
             transform: translateY(-2px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(81, 106, 199, 0.1);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(81, 106, 199, 0.1);
         }
 
         .bento-main {
-            grid-column: 1 / span 6;
-            grid-row: 1 / span 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background: linear-gradient(145deg, rgba(26, 45, 79, 0.9) 0%, rgba(16, 27, 59, 0.7) 100%);
-            padding: 12px;
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 3;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1 / 1;
         }
 
         .bento-stat {
@@ -336,49 +338,89 @@
             justify-content: center;
             align-items: flex-start;
             position: relative;
-            padding: 8px 12px;
         }
 
-        .bento-stat:nth-child(2) { grid-column: 7 / span 3; }
-        .bento-stat:nth-child(3) { grid-column: 10 / span 3; }
-        .bento-stat:nth-child(5) { grid-column: 7 / span 2; }
-        .bento-stat:nth-child(6) { grid-column: 9 / span 2; }
-
+        .bento-stat:nth-child(2) { grid-column: 5 / span 4; grid-row: 1; }
+        .bento-stat:nth-child(3) { grid-column: 9 / span 4; grid-row: 1; }
+        .bento-stat:nth-child(4) { grid-column: 5 / span 4; grid-row: 2; }
+        .bento-stat:nth-child(5) { grid-column: 9 / span 4; grid-row: 2; }
+        
         .bento-wide {
-            grid-column: 7 / span 4;
+            grid-column: 5 / span 8;
+            grid-row: 3;
             display: flex;
             align-items: center;
-            padding: 8px 12px;
+            gap: 10px;
+            padding: 10px 16px;
+            background: linear-gradient(145deg, rgba(26, 45, 79, 0.5) 0%, rgba(16, 27, 59, 0.4) 100%);
+        }
+
+        .bento-wide .location-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(81, 106, 199, 0.1);
+            border: 1px solid rgba(81, 106, 199, 0.2);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bento-wide .location-icon svg {
+            width: 10px;
+            height: 10px;
+            color: var(--color-text-subtle);
+        }
+
+        .bento-wide .location-details {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: var(--space-xs);
+            width: 100%;
+        }
+
+        .bento-wide .location-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+        }
+
+        .bento-wide .location-subtitle {
+            font-size: 10.5px;
+            color: var(--color-text-subtle);
+            margin-left: auto;
         }
 
         .stat-value {
             font-family: var(--font-mono);
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
             background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             letter-spacing: -0.02em;
         }
 
         .stat-label {
             font-family: var(--font-body);
-            font-size: 10px;
+            font-size: 9.5px;
             color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         /* Dot indicator for stat cards */
         .bento-stat::after {
             content: '';
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 10px;
+            right: 10px;
             width: 4px;
             height: 4px;
             background: var(--color-blue);
@@ -390,47 +432,6 @@
         @keyframes pulse-dot {
             0%, 100% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        .cta-card {
-            grid-column: 11 / span 2;
-            background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-light) 100%);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            padding: 8px 12px;
-            min-height: 40px;
-        }
-
-        .cta-card:hover {
-            box-shadow: 0 20px 60px var(--color-orange-glow), 0 0 0 1px rgba(241, 90, 41, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .cta-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .cta-card:hover::before {
-            left: 100%;
-        }
-
-        .cta-text {
-            color: var(--color-cream);
-            font-weight: 600;
-            font-size: calc(var(--text-body) * 0.95);
-            letter-spacing: 0.03em;
         }
 
         /* Sections */
@@ -504,7 +505,7 @@
 
         .section-header {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: flex-end;
             margin-bottom: var(--space-3xl);
             padding-bottom: var(--space-lg);
@@ -521,9 +522,11 @@
 
         .section-number {
             font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--color-blue);
-            font-weight: 400;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: rgba(81, 106, 199, 0.4);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
         }
 
         /* Philosophy */
@@ -925,15 +928,31 @@
             .experience-highlights { grid-template-columns: repeat(2, 1fr); }
             .bento-grid {
                 grid-template-columns: repeat(6, 1fr);
-                grid-template-rows: auto;
+                gap: 10px;
             }
-            .bento-main { grid-column: span 6; grid-row: span 1; }
-            .bento-stat,
-            .bento-stat:nth-child(2),
-            .bento-stat:nth-child(3),
-            .bento-stat:nth-child(5),
-            .bento-stat:nth-child(6) { grid-column: span 3; }
-            .bento-wide, .cta-card { grid-column: span 6; }
+            .bento-main {
+                grid-column: span 6;
+                grid-row: auto;
+                max-width: 320px;
+                margin: 0 auto 12px;
+                aspect-ratio: 1 / 1;
+            }
+            .bento-stat:nth-child(2) { grid-column: span 3; grid-row: auto; }
+            .bento-stat:nth-child(3) { grid-column: span 3; grid-row: auto; }
+            .bento-stat:nth-child(4) { grid-column: span 3; grid-row: auto; }
+            .bento-stat:nth-child(5) { grid-column: span 3; grid-row: auto; }
+            .bento-wide { 
+                grid-column: span 6; 
+                grid-row: auto; 
+            }
+            .bento-wide .location-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+            .bento-wide .location-subtitle {
+                margin-left: 0;
+            }
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
             .experience-item { grid-template-columns: 1fr; }
             .two-column { grid-template-columns: 1fr; }
@@ -943,16 +962,23 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .experience-highlights { grid-template-columns: 1fr; }
-            .bento-grid { grid-template-columns: 1fr; }
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
             .bento-main,
-            .bento-stat,
             .bento-stat:nth-child(2),
             .bento-stat:nth-child(3),
+            .bento-stat:nth-child(4),
             .bento-stat:nth-child(5),
-            .bento-stat:nth-child(6),
-            .bento-wide,
-            .cta-card { grid-column: span 1; }
-            .bento-main { grid-row: span 1; }
+            .bento-wide {
+                grid-column: span 1;
+                grid-row: auto;
+            }
+            .bento-main {
+                max-width: 280px;
+                margin: 0 auto 8px;
+            }
             .projects-grid { grid-template-columns: 1fr; }
             .project-card.featured { grid-column: span 1; aspect-ratio: 4/3; }
             .contact-grid { grid-template-columns: 1fr; }
@@ -987,48 +1013,48 @@
                 <h1 class="hero-name">Ahmed Arafeh</h1>
                 <p class="hero-tagline">Operations Director | Commercial Performance | Business Transformation | Events &amp; Real Estate</p>
             </div>
-        </div>
 
-        <div class="bento-grid">
-            <!-- Profile Photo -->
-            <div class="bento-card bento-main" style="display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden;">
-                <img src="portrait.jpg" alt="Ahmed Arafeh" style="width: 100%; height: auto; object-fit: contain;">
-            </div>
-
-            <!-- Top right: Stat cards row -->
-            <div class="bento-card bento-stat">
-                <div class="stat-value">18</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-
-            <div class="bento-card bento-stat">
-                <div class="stat-value">150M+</div>
-                <div class="stat-label">SAR Budgets</div>
-            </div>
-
-            <!-- Middle right: Location card -->
-            <div class="bento-card bento-wide" style="display: flex; align-items: center; gap: 6px;">
-                <div style="width: 28px; height: 28px; background: linear-gradient(135deg, rgba(81, 106, 199, 0.2) 0%, rgba(81, 106, 199, 0.05) 100%); border: 1px solid rgba(81, 106, 199, 0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px; color: var(--color-blue);">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
+            <div class="bento-grid">
+                <!-- Profile Photo -->
+                <div class="bento-card bento-main">
+                    <img src="portrait.jpg" alt="Ahmed Arafeh" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                    <span style="font-size: 13px; font-weight: 600; color: var(--color-cream);">Riyadh, Saudi Arabia</span>
-                    <span style="font-size: 10px; color: var(--color-text-muted);">Operating across KSA & Jordan</span>
+
+                <!-- Top right: Stat cards row -->
+                <div class="bento-card bento-stat">
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-            </div>
 
-            <!-- Bottom row: Stats and CTA -->
-            <div class="bento-card bento-stat">
-                <div class="stat-value">300+</div>
-                <div class="stat-label">Team Size</div>
-            </div>
+                <div class="bento-card bento-stat">
+                    <div class="stat-value">150M+</div>
+                    <div class="stat-label">SAR Budgets</div>
+                </div>
 
-            <div class="bento-card bento-stat">
-                <div class="stat-value">1B+</div>
-                <div class="stat-label">SAR Events</div>
+                <!-- Middle row: Stats -->
+                <div class="bento-card bento-stat">
+                    <div class="stat-value">300+</div>
+                    <div class="stat-label">Team Size</div>
+                </div>
+
+                <div class="bento-card bento-stat">
+                    <div class="stat-value">1B+</div>
+                    <div class="stat-label">SAR Events</div>
+                </div>
+
+                <!-- Bottom row: Location card -->
+                <div class="bento-card bento-wide">
+                    <div class="location-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="location-details">
+                        <span class="location-title">Riyadh, Saudi Arabia</span>
+                        <span class="location-subtitle">Operating across KSA & Jordan</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1038,7 +1064,7 @@
         <div class="section-header">
             <div>
                 <p class="hero-label">My Journey</p>
-                <h2 class="section-title">01. My Experience</h2>
+                <h2 class="section-title">My Experience with Numbers</h2>
             </div>
             <span class="section-number">01</span>
         </div>
@@ -1076,13 +1102,7 @@
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="section-header">
-            <div>
-                <h2 class="section-title" style="font-size: var(--text-title);">Executive Profile</h2>
-            </div>
-            <span class="section-number">02</span>
-        </div>
+
 
         <div class="philosophy-container">
             <div class="philosophy-portrait">
@@ -1113,7 +1133,6 @@
 
             </div>
         </div>
-    </section>
 
     <section id="projects" class="section">
         <div class="section-header">
@@ -1121,7 +1140,7 @@
                 <p class="hero-label">Selected Work</p>
                 <h2 class="section-title">Key Projects</h2>
             </div>
-            <span class="section-number">03</span>
+            <span class="section-number">02</span>
         </div>
 
         <div class="projects-grid">
@@ -1173,7 +1192,7 @@
                 <p class="hero-label">Career Journey</p>
                 <h2 class="section-title">Professional Experience</h2>
             </div>
-            <span class="section-number">04</span>
+            <span class="section-number">03</span>
         </div>
 
         <div class="experience-list">
@@ -1279,7 +1298,7 @@
                 <p class="hero-label">Credentials</p>
                 <h2 class="section-title">Education</h2>
             </div>
-            <span class="section-number">05</span>
+            <span class="section-number">04</span>
         </div>
 
         <div class="education-grid">
@@ -1331,7 +1350,7 @@
                 <p class="hero-label">Connect</p>
                 <h2 class="section-title">Contact</h2>
             </div>
-            <span class="section-number">06</span>
+            <span class="section-number">05</span>
         </div>
 
         <div class="contact-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 1000px;">
