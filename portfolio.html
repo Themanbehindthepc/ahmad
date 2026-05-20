@@ -194,7 +194,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            padding: calc(120px + var(--space-3xl) + var(--space-xl)) var(--space-xl) var(--space-4xl);
+            padding: calc(140px + var(--space-4xl) + var(--space-2xl)) var(--space-xl) var(--space-4xl);
             background: linear-gradient(135deg, rgba(16, 27, 59, 0.85) 0%, rgba(16, 27, 59, 0.75) 100%),
                         url('hero-bg.png') center/cover no-repeat;
             position: relative;
@@ -224,6 +224,7 @@
 
         .hero-main {
             text-align: left;
+            padding-top: var(--space-2xl);
         }
 
         .hero-label {
@@ -785,6 +786,17 @@
             text-align: center;
         }
 
+        a.contact-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        a.contact-card:hover {
+            transform: translateY(-2px);
+        }
+
         .contact-label {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -812,6 +824,15 @@
             flex-direction: column;
             gap: var(--space-xs);
             margin-top: var(--space-xl);
+            margin-bottom: 0;
+        }
+
+        #education {
+            padding-bottom: var(--space-xl);
+        }
+
+        #contact {
+            padding-top: var(--space-xl);
         }
 
         .language-item {
@@ -1415,7 +1436,7 @@
             </div>
         </div>
 
-        <div class="languages reveal reveal-delay-1" style="margin-top: var(--space-2xl);">
+        <div class="languages reveal reveal-delay-1" style="margin-top: var(--space-xl);">
             <div class="section-header reveal" style="margin-bottom: var(--space-md);">
                 <div>
                     <p class="hero-label">Languages</p>
@@ -1442,7 +1463,7 @@
         </div>
 
         <div class="contact-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 1000px;">
-            <div class="contact-card reveal">
+            <a href="mailto:ahmedarafeh@gmail.com" class="contact-card reveal">
                 <div class="contact-icon" style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(81, 106, 199, 0.2) 0%, rgba(81, 106, 199, 0.05) 100%); border: 1px solid rgba(81, 106, 199, 0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-xs);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; color: var(--color-blue);">
                         <rect width="20" height="16" x="2" y="4" rx="2"/>
@@ -1450,17 +1471,17 @@
                     </svg>
                 </div>
                 <div class="contact-label">Email</div>
-                <a href="mailto:ahmedarafeh@gmail.com" class="contact-value">ahmedarafeh@gmail.com</a>
-            </div>
-            <div class="contact-card reveal reveal-delay-1">
+                <span class="contact-value">ahmedarafeh@gmail.com</span>
+            </a>
+            <a href="tel:+966564356666" class="contact-card reveal reveal-delay-1">
                 <div class="contact-icon" style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(81, 106, 199, 0.2) 0%, rgba(81, 106, 199, 0.05) 100%); border: 1px solid rgba(81, 106, 199, 0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-xs);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; color: var(--color-blue);">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
                 </div>
                 <div class="contact-label">Phone</div>
-                <a href="tel:+966564356666" class="contact-value">+966 56 435 6666</a>
-            </div>
+                <span class="contact-value">+966 56 435 6666</span>
+            </a>
             <div class="contact-card reveal reveal-delay-2">
                 <div class="contact-icon" style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(81, 106, 199, 0.2) 0%, rgba(81, 106, 199, 0.05) 100%); border: 1px solid rgba(81, 106, 199, 0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-xs);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; color: var(--color-blue);">
@@ -1471,7 +1492,7 @@
                 <div class="contact-label">Location</div>
                 <span class="contact-value">Riyadh, KSA</span>
             </div>
-            <div class="contact-card reveal reveal-delay-3">
+            <a href="https://linkedin.com/in/ahmed-arafah-556224238" target="_blank" rel="noopener noreferrer" class="contact-card reveal reveal-delay-3">
                 <div class="contact-icon" style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(81, 106, 199, 0.2) 0%, rgba(81, 106, 199, 0.05) 100%); border: 1px solid rgba(81, 106, 199, 0.3); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-xs);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px; color: var(--color-blue);">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -1480,8 +1501,8 @@
                     </svg>
                 </div>
                 <div class="contact-label">LinkedIn</div>
-                <a href="https://linkedin.com/in/ahmed-arafah-556224238" target="_blank" class="contact-value">View Profile</a>
-            </div>
+                <span class="contact-value">View Profile</span>
+            </a>
         </div>
     </section>
 
